@@ -127,6 +127,10 @@ Planned features include:
 🚧 In Development
 
 This project is currently in the design and prototype phase. Features and architecture may evolve as development progresses.
+For collaboration, discussions, or project inquiries, connect with the developers through their GitHub profiles:
+
+* Nelly: https://github.com/nelly439
+* Adamson: https://github.com/Adamsonoladipupo
 
 ---
 
@@ -134,22 +138,5 @@ This project is currently in the design and prototype phase. Features and archit
 
 To make retail shopping faster, smarter, and friction-free by connecting customers with the products they need through existing retail infrastructure.
 
-## Developers
-
-EasyShop is designed and developed by:
-
-* **Nelly** – GitHub: https://github.com/nelly439
-* **Adamson** – GitHub: https://github.com/Adamsonoladipupo
-
-### Contributing
-
-Contributions, feedback, and suggestions are welcome. Feel free to open an issue or submit a pull request to help improve the project.
-
-### Contact
-
-For collaboration, discussions, or project inquiries, connect with the developers through their GitHub profiles:
-
-* Nelly: https://github.com/nelly439
-* Adamson: https://github.com/Adamsonoladipupo
 
 
