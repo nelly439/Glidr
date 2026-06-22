@@ -1,12 +1,12 @@
-# EasyShop
+# Glidr
 
 ## Overview
 
-EasyShop is a retail shopping companion platform designed to reduce friction in the shopping experience for customers and improve product discoverability within retail stores.
+Glidr is a retail shopping companion platform designed to make shopping smooth, fast, and friction-free. The name **Glidr** is inspired by the idea of *gliding*—moving effortlessly from one point to another without obstacles. Just as something glides smoothly, Glidr helps customers move through their shopping journey with minimal friction, from discovering products to accessing receipts.
 
 The platform integrates with existing Point of Sale (POS) systems used by supermarkets and retail stores, enabling customers to quickly find products, view product locations within stores, manage shopping lists, and access digital receipts.
 
-Rather than replacing existing retail infrastructure, EasyShop enhances it by leveraging data from existing POS systems.
+Rather than replacing existing retail infrastructure, Glidr enhances it by leveraging data from existing POS systems.
 
 ---
 
@@ -20,7 +20,7 @@ Customers often experience challenges when shopping in retail stores, including:
 * Loss or damage of paper receipts
 * Inefficient shopping planning
 
-EasyShop aims to solve these challenges through a digital-first shopping experience.
+Glidr aims to solve these challenges through a digital-first shopping experience that enables customers to shop with greater speed, convenience, and confidence.
 
 ---
 
@@ -46,7 +46,7 @@ Customers can create shopping lists and optimize their shopping journey before v
 
 ### POS Integration
 
-EasyShop integrates with existing retail POS systems to retrieve:
+Glidr integrates with existing retail POS systems to retrieve:
 
 * Product information
 * Inventory data
@@ -60,7 +60,7 @@ Current integration target:
 
 ## System Architecture
 
-EasyShop follows a layered architecture:
+Glidr follows a layered architecture:
 
 * Presentation Layer (REST APIs)
 * Service Layer (Business Logic)
@@ -122,15 +122,22 @@ Planned features include:
 
 ---
 
+## Developers
+
+Glidr is designed and developed by:
+
+* Adamson Oladipupo – https://github.com/Adamsonoladipupo
+* Nelly – https://github.com/nelly439
+
+For collaboration, discussions, or project inquiries, connect through the GitHub profiles above.
+
+---
+
 ## Project Status
 
 🚧 In Development
 
 This project is currently in the design and prototype phase. Features and architecture may evolve as development progresses.
-For collaboration, discussions, or project inquiries, connect with the developers through their GitHub profiles:
-
-* Nelly: https://github.com/nelly439
-* Adamson: https://github.com/Adamsonoladipupo
 
 ---
 
@@ -138,5 +145,5 @@ For collaboration, discussions, or project inquiries, connect with the developer
 
 To make retail shopping faster, smarter, and friction-free by connecting customers with the products they need through existing retail infrastructure.
 
-
+Our vision is to create a shopping experience where customers can effortlessly discover products, navigate stores, manage purchases, and complete their shopping journey with the same ease and flow that inspired the name **Glidr**.
 
