@@ -126,7 +126,7 @@ Planned features include:
 
 Glidr is designed and developed by:
 
-* Adamson Oladipupo – https://github.com/Adamsonoladipupo
+* Adamson – https://github.com/Adamsonoladipupo
 * Nelly – https://github.com/nelly439
 
 For collaboration, discussions, or project inquiries, connect through the GitHub profiles above.
