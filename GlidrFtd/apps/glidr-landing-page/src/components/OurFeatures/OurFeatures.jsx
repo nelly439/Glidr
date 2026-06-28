@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { PhoneAppIllustration } from "../../assets/illustrations";
 import styles from "./OurFeatures.module.css";
+import cartIllustation from "../../assets/undraw_shopping-app_b80f 1.png"
 
 const features = [
   {
@@ -8,7 +9,7 @@ const features = [
     label: "Product Search",
     title: "Find products instantly",
     description:
-      "Search by name, category, or barcode scan — and know exactly what's in stock before you even walk into the store. No more aisle-wandering.",
+      "Search by name, category, or barcode scan, and know exactly what's in stock before you even walk into the store. No more aisle-wandering.",
   },
   {
     id: "discover",
@@ -22,7 +23,7 @@ const features = [
     label: "Zero Checkout",
     title: "Skip the queue",
     description:
-      "Scan as you shop, pay through the app, and walk straight out. No queues, no waiting — just glide to the exit with your receipt already in your pocket.",
+      "Scan as you shop, pay through the app, and walk straight out. No queues, no waiting just glide to the exit with your receipt already in your pocket.",
   },
 ];
 
@@ -68,7 +69,8 @@ export default function OurFeatures() {
           </div>
 
           <div className={styles.illustration} aria-hidden="true">
-            <PhoneAppIllustration className={styles.illustrationSvg} />
+            {/* <PhoneAppIllustration className={styles.illustrationSvg} /> */}
+            <img src={cartIllustation} alt="" />
           </div>
         </div>
       </div>

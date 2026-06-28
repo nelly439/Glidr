@@ -1,5 +1,6 @@
 import { CartIllustration } from "../../assets/illustrations";
 import styles from "./CallToAction.module.css";
+import cartIllustration from "../../assets/undraw_empty-cart_574u 1.png"
 
 export default function CallToAction() {
   return (
@@ -18,7 +19,8 @@ export default function CallToAction() {
 
         {/* Illustration */}
         <div className={styles.illustration} aria-hidden="true">
-          <CartIllustration className={styles.illustrationSvg} />
+          {/* <CartIllustration className={styles.illustrationSvg} /> */}
+          <img src={cartIllustration} alt="" />
         </div>
       </div>
     </section>
