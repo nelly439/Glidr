@@ -15,7 +15,7 @@ export default function HeroSection() {
       {/* Illustrations */}
       <div className={styles.illustrationRow} aria-hidden="true">
         <ShopperIllustration className={styles.illustration} />
-        <ForkliftIllustration className={styles.illustration} />
+        {/* <ForkliftIllustration className={styles.illustration} /> */}
       </div>
 
       {/* Search bar */}
