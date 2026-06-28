@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { GlidrLogo } from "../../assets/illustrations";
-import styles from "./Header.module.css";
+import styles from "../Header/Header.module.css";
+import logo from "../../assets/glidr_logo.svg"
 
 const navLinks = [
   { label: "Company", href: "#" },
@@ -15,11 +15,6 @@ export default function Header() {
   return (
     <header className={styles.header}>
       <div className={styles.inner}>
-        {/* Brand */}
-        <a href="/" className={styles.brand} aria-label="Glidr home">
-          <GlidrLogo size={26} />
-          <span className={styles.brandName}>lidr</span>
-        </a>
 
         {/* Desktop nav */}
         <nav className={styles.desktopNav} aria-label="Main navigation">
@@ -29,6 +24,11 @@ export default function Header() {
             </a>
           ))}
         </nav>
+
+        {/* Brand */}
+        <a href="/" className={styles.brand} aria-label="Glidr home">
+          <span className={styles.brandName}><img src={logo} alt="" /></span>
+        </a>
 
         {/* CTA */}
         <a href="#" className={styles.cta}>Use App</a>
