@@ -1,4 +1,4 @@
-import "../pages/landingPage.module.css"
+import styles from "../pages/landingPage.module.css"
 import CallToAction from "../components/CallToAction/CallToAction"
 import Footer from "../components/Footer/Footer"
 import Header from "../components/Header/Header"
@@ -10,13 +10,15 @@ import ShopSmarter from "../components/ShopSmarter/ShopSmarter"
 const LandingPage = () => {
     return (
         <>
-            <Header />
-            <HeroSection />
-            <ProvenMetrics />
-            <OurFeatures />
-            <ShopSmarter />
-            <CallToAction />
-            <Footer />
+            <div className={styles.container}>
+                <Header />
+                <HeroSection />
+                <ProvenMetrics />
+                <OurFeatures />
+                <ShopSmarter />
+                <CallToAction />
+                <Footer />
+            </div>
         </>
     )
 }
