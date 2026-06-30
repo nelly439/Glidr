@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { SearchManIllustration } from "../../assets/illustrations";
 import styles from "./ShopSmarter.module.css";
+import girlIllustration from "../../assets/undraw_searching.png"
+import girlIllustration2 from "../../assets/Group.png"
 
 const slides = [
   {
@@ -30,7 +32,8 @@ export default function ShopSmarter() {
       <div className={styles.card}>
         {/* Illustration */}
         <div className={styles.illustrationWrapper} aria-hidden="true">
-          <SearchManIllustration className={styles.illustration} />
+          {/* <SearchManIllustration className={styles.illustration} /> */}
+          <img src={girlIllustration2} alt="" className={styles.illustration}/>
         </div>
 
         {/* Text side */}

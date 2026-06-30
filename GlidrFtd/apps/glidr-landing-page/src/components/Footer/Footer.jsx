@@ -1,31 +1,32 @@
 import { GlidrLogo } from "../../assets/illustrations";
 import styles from "./Footer.module.css";
+import logo from "../../assets/glidr_logo_fff.svg"
 
 const navColumns = [
   {
     title: "Company",
     links: [
-      { label: "Vendor",     href: "#" },
-      { label: "Riders",     href: "#" },
-      { label: "Ads",        href: "#" },
+      { label: "Vendor", href: "#" },
+      { label: "Riders", href: "#" },
+      { label: "Ads", href: "#" },
       { label: "GlidrStore", href: "#" },
     ],
   },
   {
     title: "Products",
     links: [
-      { label: "Vendor",     href: "#" },
-      { label: "Riders",     href: "#" },
-      { label: "Ads",        href: "#" },
+      { label: "Vendor", href: "#" },
+      { label: "Riders", href: "#" },
+      { label: "Ads", href: "#" },
       { label: "GlidrStore", href: "#" },
     ],
   },
   {
     title: "Solutions",
     links: [
-      { label: "Vendor",     href: "#" },
-      { label: "Riders",     href: "#" },
-      { label: "Ads",        href: "#" },
+      { label: "Vendor", href: "#" },
+      { label: "Riders", href: "#" },
+      { label: "Ads", href: "#" },
       { label: "GlidrStore", href: "#" },
     ],
   },
@@ -89,8 +90,9 @@ export default function Footer() {
           {/* Brand */}
           <div className={styles.brand}>
             <a href="/" className={styles.brandLink} aria-label="Glidr home">
-              <GlidrLogo color="#00C9A7" size={24} />
-              <span className={styles.brandName}>lidr</span>
+              <a href="/" className={styles.brand} aria-label="Glidr home">
+                <span className={styles.brandName}><img src={logo} alt="" /></span>
+              </a>
             </a>
             <p className={styles.brandDesc}>
               Simplify shopping experience from product discovery to checkout.
@@ -117,7 +119,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className={styles.bottom}>
           <p className={styles.copyright}>
-            © 2022–2026 Chowdeck Logistics Ltd. All rights reserved.
+            © 2022–2026 Glidr Ltd. All rights reserved.
           </p>
           <ul className={styles.socialList} aria-label="Social media links">
             {socialLinks.map(s => (

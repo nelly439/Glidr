@@ -1,4 +1,4 @@
-import "../pages/landingPage.module.css"
+import "../styles/landingPage.css"
 import CallToAction from "../components/CallToAction/CallToAction"
 import Footer from "../components/Footer/Footer"
 import Header from "../components/Header/Header"
