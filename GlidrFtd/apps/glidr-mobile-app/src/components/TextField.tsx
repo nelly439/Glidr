@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import {
   Image,
   Pressable,
@@ -9,15 +9,20 @@ import {
 } from "react-native";
 
 import Colors from "../constants/colors";
-import Typography from "../constants/typography";
 import Images from "../constants/images";
+import Typography from "../constants/typography";
 
 interface Props extends TextInputProps {
+  // secure?: boolean;
   secure?: boolean;
+  rightIcon?: any;
+  onRightIconPress?: () => void;
 }
 
 export default function TextField({
   secure = false,
+  rightIcon,
+  onRightIconPress,
   ...props
 }: Props) {
   const [hidden, setHidden] = useState(secure);

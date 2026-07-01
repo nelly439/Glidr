@@ -11,6 +11,7 @@ import Typography from "../constants/typography";
 interface Props {
   title: string;
   onPress: () => void;
+  disabled?: boolean;
 
   loading?: boolean;
 
@@ -22,14 +23,17 @@ export default function Button({
   onPress,
   loading = false,
   variant = "filled",
+  disabled = false,
 }: Props) {
   const filled = variant === "filled";
 
   return (
     <Pressable
+      disabled={disabled}
       onPress={onPress}
       style={[
         styles.button,
+        disabled? styles.disabled: styles.enabled,
         filled ? styles.filled : styles.outline,
       ]}
     >
@@ -85,5 +89,12 @@ const styles = StyleSheet.create({
 
   primary: {
     color: Colors.primary,
+  },
+  disabled: {
+    opacity: 0.5,
+  },
+
+  enabled: {
+    opacity: 1,
   },
 });
