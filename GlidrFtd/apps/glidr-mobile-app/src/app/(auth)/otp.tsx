@@ -59,7 +59,7 @@ export default function OTPScreen() {
 
     // TODO: Verify OTP with backend
 
-    router.replace(Routes.Home);
+    router.replace("/(tabs)");
   };
 
   return (

@@ -45,5 +45,4 @@ export const navigationItems = [
         iconName: "user",
         route: "/profile"
     }
-
 ];

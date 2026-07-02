@@ -6,11 +6,14 @@ import {
     Text,
     View,
 } from "react-native";
+// import { categories } from "@/mock";
+// import { Category } from "@/types/category";
 
 interface CategoryCardProps {
     title: string;
     image: ImageSourcePropType;
     onPress?: () => void;
+    // category : Category
 }
 
 export default function CategoryCard({
@@ -31,6 +34,8 @@ export default function CategoryCard({
                 />
             </View>
 
+            
+
             <Text
                 numberOfLines={2}
                 style={styles.title}
@@ -38,6 +43,7 @@ export default function CategoryCard({
                 {title}
             </Text>
         </Pressable>
+        
     );
 }
 

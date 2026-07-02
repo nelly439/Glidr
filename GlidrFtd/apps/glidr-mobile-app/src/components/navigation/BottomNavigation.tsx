@@ -3,7 +3,7 @@ import { StyleSheet, View } from "react-native";
 import { router, usePathname } from "expo-router";
 
 import BottomNavigationItem from "./BottomNavigationItem";
-import { navigationItems } from "./navigation.data";
+import { navigationItems } from "../../mock/navigation.data";
 
 export default function BottomNavigation() {
   const pathname = usePathname();

@@ -1,8 +1,7 @@
-import React from "react";
 import {
+  Pressable,
   StyleSheet,
-  TextInput,
-  View,
+  TextInput
 } from "react-native";
 
 import { Feather } from "@expo/vector-icons";
@@ -10,15 +9,21 @@ import { Feather } from "@expo/vector-icons";
 interface SearchBarProps {
   value?: string;
   onChangeText?: (text: string) => void;
+  onPress?: () => void;
+  editable?: boolean;
 }
 
 export default function SearchBar({
   value,
   onChangeText,
+  onPress,
+  editable = true,
 }: SearchBarProps) {
   return (
-    <View style={styles.container}>
-
+    <Pressable
+      onPress={onPress}
+      style={styles.container}
+    >
       <Feather
         name="search"
         size={22}
@@ -26,49 +31,42 @@ export default function SearchBar({
       />
 
       <TextInput
+        style={styles.input}
         placeholder="Search products..."
         placeholderTextColor="#999"
         value={value}
         onChangeText={onChangeText}
-        style={styles.input}
+        editable={editable}
+        pointerEvents={editable ? "auto" : "none"}
       />
-
-    </View>
+    </Pressable>
   );
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flexDirection: "row",
+    alignItems: "center",
 
-container:{
+    backgroundColor: "#F5F5F5",
 
-flexDirection:"row",
+    marginHorizontal: 20,
+    marginTop: 24,
 
-alignItems:"center",
+    paddingHorizontal: 18,
 
-backgroundColor:"#F5F5F5",
+    height: 58,
 
-marginHorizontal:20,
+    borderRadius: 16,
+  },
 
-marginTop:24,
+  input: {
+    flex: 1,
 
-paddingHorizontal:18,
+    marginLeft: 12,
 
-height:58,
+    fontSize: 16,
 
-borderRadius:16,
-
-},
-
-input:{
-
-flex:1,
-
-marginLeft:12,
-
-fontSize:16,
-
-color:"#1A1A1A",
-
-}
-
+    color: "#1A1A1A",
+  },
 });

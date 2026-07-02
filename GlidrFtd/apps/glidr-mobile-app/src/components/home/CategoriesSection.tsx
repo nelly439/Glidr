@@ -9,7 +9,7 @@ import {
 
 import CategoryCard from "./CategoryCard";
 
-import { categories } from "@/mock/categories";
+import { categories } from "@/mock/categories.data";
 
 export default function CategoriesSection() {
   return (

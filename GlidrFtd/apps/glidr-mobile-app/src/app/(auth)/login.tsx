@@ -48,7 +48,7 @@ export default function LoginScreen() {
         <Button
           title="Login"
           disabled={!isLoginEnabled}
-          onPress={() => router.replace(Routes.Home)}
+          onPress={() => router.replace("/(tabs)")}
         />
 
         <Text
