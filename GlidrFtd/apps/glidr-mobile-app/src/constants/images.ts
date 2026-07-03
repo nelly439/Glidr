@@ -9,7 +9,8 @@ export const Images = {
   google: require("../../assets/images/google.png"),
   facebook: require("../../assets/images/facebook.png"),
   twitter: require("../../assets/images/twitter.png"),
-  faceId: require("../../assets/images/faceId.png")
+  faceId: require("../../assets/images/faceId.png"),
+  success: require("../../assets/images/success.png")
 };
 
 export default Images;

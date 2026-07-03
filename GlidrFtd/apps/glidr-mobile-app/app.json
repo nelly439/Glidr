@@ -1,15 +1,15 @@
 {
   "expo": {
-    "name": "GlidrMobileApp",
-    "slug": "GlidrMobileApp",
+    "name": "Glidr",
+    "slug": "glidr",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
+    "icon": "./assets/images/glidr_logo.png",
     "scheme": "glidrmobileapp",
     "userInterfaceStyle": "automatic",
     "ios": {
       "icon": "./assets/expo.icon",
-      "bundleIdentifier": "com.anonymous.GlidrMobileApp"
+      "bundleIdentifier": "com.anonymous.Glidr"
     },
     "android": {
       "adaptiveIcon": {

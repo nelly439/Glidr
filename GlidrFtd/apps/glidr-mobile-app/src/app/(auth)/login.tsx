@@ -1,23 +1,27 @@
-import { StyleSheet, Text, View } from "react-native";
 import { useRouter } from "expo-router";
+import { useState } from "react";
+import { StyleSheet, Text, View } from "react-native";
 
-import Screen from "../components/Screen";
-import Logo from "../components/Logo";
-import AuthHeader from "../components/AuthHeader";
-import GreetingCard from "../components/GreetingCard";
-import TextField from "../components/TextField";
-import Button from "../components/Button";
-// import Divider from "../components/Divider";
-import FaceIdButton from "../components/FaceIdButton";
-import SocialLogin from "../components/SocialLogin";
+import AuthHeader from "../../components/AuthHeader";
+import Button from "../../components/Button";
+import Divider from "../../components/Divider";
+import FaceIdButton from "../../components/FaceIdButton";
+import GreetingCard from "../../components/GreetingCard";
+import Logo from "../../components/Logo";
+import Screen from "../../components/Screen";
+import SocialLogin from "../../components/SocialLogin";
+import TextField from "../../components/TextField";
 
-import Colors from "../constants/colors";
-import Typography from "../constants/typography";
-import Spacing from "../constants/spacing";
-import Routes from "../constants/routes";
+import Colors from "../../constants/colors";
+import Routes from "../../constants/routes";
+import Spacing from "../../constants/spacing";
+import Typography from "../../constants/typography";
+
 
 export default function LoginScreen() {
   const router = useRouter();
+  const [password, setPassword] = useState("");
+  const isLoginEnabled = password.trim().length > 0;
 
   return (
     <Screen>
@@ -26,7 +30,7 @@ export default function LoginScreen() {
 
         <AuthHeader active="login" />
 
-        <GreetingCard name="Quinnbriar" />
+        <GreetingCard name="Adamson" />
 
         <View>
           <Text style={styles.label}>
@@ -36,12 +40,15 @@ export default function LoginScreen() {
           <TextField
             secure
             placeholder="Enter password"
+            value={password}
+            onChangeText={setPassword}
           />
         </View>
 
         <Button
           title="Login"
-          onPress={() => router.replace(Routes.Home)}
+          disabled={!isLoginEnabled}
+          onPress={() => router.replace("/(tabs)")}
         />
 
         <Text
@@ -53,7 +60,7 @@ export default function LoginScreen() {
           Forgot Password
         </Text>
 
-        {/* <Divider /> */}
+        <Divider />
 
         <FaceIdButton />
 
