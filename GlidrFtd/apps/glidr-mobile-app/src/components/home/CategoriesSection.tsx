@@ -1,10 +1,9 @@
-import React from "react";
+import { router } from "expo-router";
 import {
-  FlatList,
   StyleSheet,
   Text,
   TouchableOpacity,
-  View,
+  View
 } from "react-native";
 
 import CategoryCard from "./CategoryCard";
@@ -31,41 +30,38 @@ export default function CategoriesSection() {
 
       </View>
 
-      {/* <FlatList
-        data={categories}
-
-        keyExtractor={(item) => item.id}
-
-        renderItem={({ item }) => (
-
-          <CategoryCard
-
-            title={item.title}
-
-            image={item.image}
-
-          />
-
-        )}
-
-        numColumns={2}
-
-        columnWrapperStyle={{
-          justifyContent: "space-between",
-        }}
-
-        scrollEnabled={false}
-
-      /> */}
-
       <View style={styles.grid}>
-          {categories.map(category => (
-              <CategoryCard
-                  key={category.id}
-                  title={category.title}
-                  image={category.image}
-              />
-          ))}
+        {
+          categories.map(category => (
+
+            <CategoryCard
+
+              key={category.id}
+
+              title={category.title}
+
+              image={category.image}
+
+              onPress={() =>
+
+                router.push({
+
+                  pathname: "/products",
+
+                  params: {
+
+                    categoryId: category.id,
+
+                  },
+
+                })
+
+              }
+
+            />
+
+          ))
+        }
       </View>
 
     </View>
@@ -74,50 +70,50 @@ export default function CategoriesSection() {
 
 const styles = StyleSheet.create({
 
-container:{
+  container: {
 
-marginHorizontal:20,
+    marginHorizontal: 20,
 
-marginTop:28,
+    marginTop: 28,
 
-},
+  },
 
-header:{
+  header: {
 
-flexDirection:"row",
+    flexDirection: "row",
 
-justifyContent:"space-between",
+    justifyContent: "space-between",
 
-alignItems:"center",
+    alignItems: "center",
 
-marginBottom:20,
+    marginBottom: 20,
 
-},
+  },
 
-title:{
+  title: {
 
-fontSize:22,
+    fontSize: 22,
 
-fontWeight:"700",
+    fontWeight: "700",
 
-color:"#1A1A1A",
+    color: "#1A1A1A",
 
-},
+  },
 
-grid: {
+  grid: {
     flexDirection: "row",
     flexWrap: "wrap",
     justifyContent: "space-between",
-},
+  },
 
-seeAll:{
+  seeAll: {
 
-fontSize:15,
+    fontSize: 15,
 
-fontWeight:"600",
+    fontWeight: "600",
 
-color:"#18B7AE",
+    color: "#18B7AE",
 
-}
+  }
 
 });

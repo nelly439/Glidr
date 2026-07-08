@@ -6,15 +6,15 @@ import {
   View,
 } from "react-native";
 
+import { Supermarket } from "@/types";
+
 interface Props {
-  name: string;
-  logo: any;
+  supermarket: Supermarket;
   onPress?: () => void;
 }
 
 export default function SupermarketCard({
-  name,
-  logo,
+  supermarket,
   onPress,
 }: Props) {
   return (
@@ -25,7 +25,7 @@ export default function SupermarketCard({
     >
       <View style={styles.logoContainer}>
         <Image
-          source={logo}
+          source={supermarket.logo}
           style={styles.logo}
           resizeMode="contain"
         />
@@ -35,7 +35,7 @@ export default function SupermarketCard({
         numberOfLines={2}
         style={styles.name}
       >
-        {name}
+        {supermarket.name}
       </Text>
     </TouchableOpacity>
   );
@@ -52,12 +52,9 @@ const styles = StyleSheet.create({
     width: 60,
     height: 60,
     borderRadius: 37,
-
     backgroundColor: "#FFFFFF",
-
     justifyContent: "center",
     alignItems: "center",
-
     shadowColor: "#000",
     shadowOpacity: 0.08,
     shadowRadius: 8,

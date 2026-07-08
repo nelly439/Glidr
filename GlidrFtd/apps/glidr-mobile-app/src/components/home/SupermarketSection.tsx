@@ -1,3 +1,4 @@
+import { router } from "expo-router";
 import {
   FlatList,
   StyleSheet,
@@ -33,8 +34,15 @@ export default function SupermarketSection() {
         contentContainerStyle={styles.list}
         renderItem={({ item }) => (
           <SupermarketCard
-            name={item.name}
-            logo={item.logo}
+            supermarket={item}
+            onPress={() =>
+              router.push({
+                pathname: "/products",
+                params: {
+                  storeId: item.id,
+                },
+              })
+            }
           />
         )}
       />

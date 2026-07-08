@@ -1,35 +1,40 @@
-import React, { useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import {
-  View,
-  Text,
-  StyleSheet,
+  Alert,
   Image,
   ScrollView,
+  StyleSheet,
+  Text,
   TouchableOpacity,
+  View,
 } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
+
+import { useCart } from "@/hooks/useCart";
 import { Ionicons } from "@expo/vector-icons";
 import { router, useLocalSearchParams } from "expo-router";
+import { SafeAreaView } from "react-native-safe-area-context";
+
 
 import { products } from "@/mock";
 
 export default function ProductDetailsScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
+  const { addToCart } = useCart();
+  const [quantity, setQuantity] = useState(1);
 
-  const product = useMemo(
+  const foundProduct = useMemo(
     () => products.find((item) => item.id === id),
     [id]
   );
 
-  const [quantity, setQuantity] = useState(1);
-
-  if (!product) {
+  if (!foundProduct) {
     return (
       <SafeAreaView style={styles.center}>
         <Text>Product not found.</Text>
       </SafeAreaView>
     );
   }
+  const product = foundProduct;
 
   const increase = () => {
     if (quantity < product.quantity) {
@@ -42,6 +47,25 @@ export default function ProductDetailsScreen() {
       setQuantity(quantity - 1);
     }
   };
+
+  function handleAddToCart() {
+    addToCart(product, quantity);
+    Alert.alert(
+      "Added to Cart",
+      `${product.name} has been added to your cart.`,
+      [
+        {
+          text: "Continue Shopping",
+          style: "cancel",
+        },
+        {
+          text: "View Cart",
+          onPress: () => router.push("/cart"),
+        },
+      ]
+    );
+
+  }
 
   return (
     <SafeAreaView style={styles.safeArea}>
@@ -58,24 +82,18 @@ export default function ProductDetailsScreen() {
           <Ionicons name="arrow-back" size={28} color="#111827" />
         </TouchableOpacity>
 
-        {/* Product Image */}
-
         <View style={styles.imageContainer}>
           <Image
-            source={ product.image }
+            source={product.image}
             style={styles.image}
           />
         </View>
-
-        {/* Product Info */}
 
         <Text style={styles.name}>{product.name}</Text>
 
         <Text style={styles.price}>
           ₦{product.price.toLocaleString()}
         </Text>
-
-        {/* Stats */}
 
         <View style={styles.statsRow}>
           <View>
@@ -99,8 +117,6 @@ export default function ProductDetailsScreen() {
             <Text style={styles.statLabel}>Brand</Text>
           </View>
         </View>
-
-        {/* Product Details */}
 
         <Text style={styles.sectionTitle}>
           Product Details
@@ -133,7 +149,6 @@ export default function ProductDetailsScreen() {
           </Text>
         </View>
 
-        {/* Store Location */}
 
         <Text style={styles.sectionTitle}>
           Store Location
@@ -159,8 +174,6 @@ export default function ProductDetailsScreen() {
             {product.shelfSection}
           </Text>
         </View>
-
-        {/* Quantity */}
 
         <View style={styles.quantityRow}>
           <View>
@@ -204,9 +217,18 @@ export default function ProductDetailsScreen() {
 
         {/* Add To Cart */}
 
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity
+          style={[
+            styles.button,
+            product.quantity === 0 && styles.disabledButton,
+          ]}
+          disabled={product.quantity === 0}
+          onPress={handleAddToCart}
+        >
           <Text style={styles.buttonText}>
-            Add to Cart
+            {product.quantity === 0
+              ? "Out of Stock"
+              : "Add to Cart"}
           </Text>
         </TouchableOpacity>
       </ScrollView>
@@ -359,4 +381,8 @@ const styles = StyleSheet.create({
     fontSize: 22,
     fontWeight: "700",
   },
+  disabledButton: {
+    backgroundColor: "#BDBDBD",
+  },
+
 });

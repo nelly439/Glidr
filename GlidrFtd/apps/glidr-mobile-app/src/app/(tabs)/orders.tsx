@@ -1,9 +1,6 @@
 import { View, Text } from "react-native";
+import OrdersScreen from "@/screens/orders/OrdersScreen";
 
-export default function OrdersScreen() {
-  return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text>Orders Screen</Text>
-    </View>
-  );
+export default function Page() {
+  return <OrdersScreen />;
 }

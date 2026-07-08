@@ -12,4 +12,5 @@ export interface Product {
   shelfSection: string;
   image: ImageSourcePropType;
   description: string;
+  storeId: string;
 }

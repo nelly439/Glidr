@@ -6,14 +6,11 @@ import {
     Text,
     View,
 } from "react-native";
-// import { categories } from "@/mock";
-// import { Category } from "@/types/category";
 
 interface CategoryCardProps {
     title: string;
     image: ImageSourcePropType;
     onPress?: () => void;
-    // category : Category
 }
 
 export default function CategoryCard({
