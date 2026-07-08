@@ -1,9 +1,3 @@
-import { View, Text } from "react-native";
+import { ListsScreen } from "@/components/screens/Lists";
 
-export default function ListsScreen() {
-  return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text>Shopping Lists</Text>
-    </View>
-  );
-}
+export default ListsScreen;

@@ -22,10 +22,10 @@ export default function HomeScreen() {
             />
 
             <PromoCarousel />
-
+            <SupermarketSection />
             <CategoriesSection />
 
-            <SupermarketSection />
+            
             {/* <BottomNavigation /> */}
         </ScrollView>
     );

@@ -6,10 +6,14 @@ import {
   Inter_600SemiBold,
   Inter_700Bold,
 } from "@expo-google-fonts/inter";
+import { UserProvider } from "@/providers/UserProvider";
 import {
   Montserrat_600SemiBold,
   Montserrat_700Bold,
 } from "@expo-google-fonts/montserrat";
+import { ShoppingListProvider } from "@/context";
+import { CartProvider } from "@/context";
+import { OrderProvider } from "@/context/OrderContext";
 
 
 export default function RootLayout() {
@@ -29,14 +33,25 @@ export default function RootLayout() {
   }
   
   return (
-    <Stack
-      screenOptions={{
-        headerShown: false,
-        animation: "fade",
-        contentStyle: {
-          backgroundColor: "#FFFFFF",
-        },
-      }}
-    />
+
+    <UserProvider>
+    <CartProvider>
+      <ShoppingListProvider>
+        <OrderProvider>
+
+          <Stack
+              screenOptions={{
+                  headerShown: false,
+                  animation: "fade",
+                  contentStyle: {
+                      backgroundColor: "#FFFFFF",
+                  },
+              }}
+          />
+        </OrderProvider>
+      </ShoppingListProvider>
+    </CartProvider>
+    </UserProvider>
+
   );
 }

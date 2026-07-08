@@ -1,6 +1,6 @@
 import { Category } from "@/types/category";
 
-export const categories: Category [] = [
+export const categories: Category[] = [
     {
         id: "1",
         title: "Fresh Fruits & Vegetables",
@@ -30,17 +30,17 @@ export const categories: Category [] = [
         aisleNumber: "12",
     },
     {
-        id: "3",
+        id: "5",
         title: "Dairy and Egg",
         image: require("../../assets/images/categories/milk.png"),
         shelfNumber: "2",
         aisleNumber: "10",
     },
     {
-        id: "4",
+        id: "6",
         title: "Beverages",
         image: require("../../assets/images/categories/beverages.png"),
         shelfNumber: "6",
         aisleNumber: "12",
-    }
+    },
 ];
