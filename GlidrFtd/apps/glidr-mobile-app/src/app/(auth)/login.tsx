@@ -30,7 +30,7 @@ export default function LoginScreen() {
 
         <AuthHeader active="login" />
 
-        <GreetingCard name="Adamson" />
+        <GreetingCard name="Henry" />
 
         <View>
           <Text style={styles.label}>

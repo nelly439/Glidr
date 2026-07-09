@@ -1,92 +1,85 @@
-import { StyleSheet, Text, View } from "react-native";
+import {
+    ScrollView,
+    StyleSheet,
+} from "react-native";
+
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import ScreenHeader from "@/components/profile/ScreenHeader";
+import InfoCard from "@/components/profile/InfoCard";
 
-export default function AboutScreen(){
+export default function AboutScreen() {
 
-return(
+    return (
 
-<SafeAreaView style={styles.container}>
+        <SafeAreaView style={styles.container}>
 
-<ScreenHeader title="About Glidr"/>
+            <ScreenHeader
+                title="About Glidr"
+            />
 
-<View style={styles.card}>
+            <ScrollView>
 
-<Text style={styles.name}>
+                <InfoCard
 
-Glidr
+                    icon="cube-outline"
 
-</Text>
+                    title="Version"
 
-<Text style={styles.version}>
+                    value="1.0.0"
 
-Version 1.0.0
+                />
 
-</Text>
+                <InfoCard
 
-<Text style={styles.description}>
+                    icon="code-slash-outline"
 
-Glidr helps shoppers discover products, compare supermarkets, manage shopping lists, and enjoy a smoother shopping experience.
+                    title="Developer"
 
-</Text>
+                    value="Glidr"
 
-</View>
+                />
 
-</SafeAreaView>
+                <InfoCard
 
-)
+                    icon="globe-outline"
 
-}
+                    title="Website"
 
-const styles=StyleSheet.create({
+                    value="www.glidr.app"
 
-container:{
+                />
 
-flex:1,
+                <InfoCard
 
-padding:20,
+                    icon="information-circle-outline"
 
-backgroundColor:"#F7F7F7",
+                    title="About"
 
-},
+                    value="Glidr helps shoppers discover products, navigate supermarkets, manage shopping lists, and enjoy a smarter shopping experience."
 
-card:{
+                />
 
-backgroundColor:"#FFF",
+            </ScrollView>
 
-padding:20,
+        </SafeAreaView>
 
-borderRadius:16,
-
-},
-
-name:{
-
-fontSize:30,
-
-fontWeight:"700",
-
-},
-
-version:{
-
-marginTop:8,
-
-color:"#18B7AE",
-
-},
-
-description:{
-
-marginTop:20,
-
-lineHeight:24,
-
-fontSize:16,
-
-color:"#555",
+    );
 
 }
+
+const styles = StyleSheet.create({
+
+    container: {
+
+        flex: 1,
+
+        backgroundColor: "#F8F8F8",
+
+        paddingHorizontal: 20,
+
+        paddingTop: 10,
+
+    },
 
 });

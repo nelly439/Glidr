@@ -1,15 +1,24 @@
-import { Image, StyleSheet, Text, View } from "react-native";
+import {
+    Image,
+    StyleSheet,
+    Text,
+    View,
+} from "react-native";
 
 interface Props {
+
     name: string;
+
     email: string;
-    avatar: any;
+
 }
 
 export default function ProfileHeader({
+
     name,
+
     email,
-    avatar,
+
 }: Props) {
 
     return (
@@ -17,8 +26,11 @@ export default function ProfileHeader({
         <View style={styles.container}>
 
             <Image
-                source={avatar}
+
+                source={require("@/assets/images/avatar.png")}
+
                 style={styles.avatar}
+
             />
 
             <Text style={styles.name}>
@@ -28,6 +40,14 @@ export default function ProfileHeader({
             <Text style={styles.email}>
                 {email}
             </Text>
+
+            <View style={styles.badge}>
+
+                <Text style={styles.badgeText}>
+                    Glidr Member
+                </Text>
+
+            </View>
 
         </View>
 
@@ -41,7 +61,7 @@ const styles = StyleSheet.create({
 
         alignItems: "center",
 
-        paddingVertical: 32,
+        paddingVertical: 30,
 
         backgroundColor: "#FFF",
 
@@ -49,33 +69,51 @@ const styles = StyleSheet.create({
 
     avatar: {
 
-        width: 90,
+        width: 110,
 
-        height: 90,
+        height: 110,
 
-        borderRadius: 45,
+        borderRadius: 55,
+
+        marginBottom: 20,
 
     },
 
     name: {
 
-        marginTop: 16,
-
-        fontSize: 30,
+        fontSize: 24,
 
         fontWeight: "700",
-
-        color: "#111",
 
     },
 
     email: {
 
+        color: "#666",
+
         marginTop: 6,
 
-        fontSize: 18,
+    },
 
-        color: "#8E8E93",
+    badge: {
+
+        marginTop: 16,
+
+        backgroundColor: "#18B7AE",
+
+        paddingHorizontal: 16,
+
+        paddingVertical: 8,
+
+        borderRadius: 20,
+
+    },
+
+    badgeText: {
+
+        color: "#FFF",
+
+        fontWeight: "600",
 
     },
 

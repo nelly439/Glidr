@@ -1,4 +1,5 @@
-import { ScrollView } from "react-native";
+import { Alert, ScrollView, StyleSheet, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 import { router } from "expo-router";
 
 import ProfileHeader from "@/components/profile/ProfileHeader";
@@ -6,102 +7,141 @@ import ProfileMenuItem from "@/components/profile/ProfileMenuItem";
 
 export default function ProfileScreen() {
 
+    function handleLogout() {
+
+        Alert.alert(
+            "Logout",
+            "Are you sure you want to logout?",
+            [
+                {
+                    text: "Cancel",
+                    style: "cancel",
+                },
+                {
+                    text: "Logout",
+                    style: "destructive",
+                    onPress: () => {
+
+                        // TODO:
+                        // Remove authentication token later.
+
+                        router.replace("/welcome");
+                    },
+                },
+            ]
+        );
+
+    }
+
     return (
 
-        <ScrollView>
+        <SafeAreaView style={styles.container}>
 
-            <ProfileHeader
+            <ScrollView
+                showsVerticalScrollIndicator={false}
+            >
 
-                name="Abdulwahab"
+                <ProfileHeader
 
-                email="adamson@gmail.com"
+                    name="Henry Olaitan"
 
-                avatar={require("@/assets/images/profile.jpg")}
+                    email="henry@gmail.com"
 
-            />
+                />
 
-            <ProfileMenuItem
+                <View style={styles.menu}>
 
-                title="Orders"
+                    <ProfileMenuItem
+                        icon="person-outline"
+                        title="My Details"
+                        onPress={() =>
+                            router.push("/profile/details")
+                        }
+                    />
 
-                icon="shopping-bag"
+                    <ProfileMenuItem
+                        icon="location-outline"
+                        title="Delivery Address"
+                        onPress={() =>
+                            router.push("/profile/address")
+                        }
+                    />
 
-                onPress={() => router.push("/orders")}
+                    <ProfileMenuItem
+                        icon="card-outline"
+                        title="Payment Methods"
+                        onPress={() =>
+                            router.push("/profile/payment")
+                        }
+                    />
 
-            />
+                    <ProfileMenuItem
+                        icon="gift-outline"
+                        title="Promo Codes"
+                        onPress={() =>
+                            router.push("/profile/promo")
+                        }
+                    />
 
-            <ProfileMenuItem
+                    <ProfileMenuItem
+                        icon="settings-outline"
+                        title="Settings"
+                        onPress={() =>
+                            router.push("/profile/settings")
+                        }
+                    />
 
-                title="My Details"
+                    <ProfileMenuItem
+                        icon="help-circle-outline"
+                        title="Help & Support"
+                        onPress={() =>
+                            router.push("/profile/help")
+                        }
+                    />
 
-                icon="user"
+                    <ProfileMenuItem
+                        icon="information-circle-outline"
+                        title="About"
+                        onPress={() =>
+                            router.push("/profile/about")
+                        }
+                    />
 
-                onPress={() => router.push("/profile/details")}
+                    <ProfileMenuItem
+                        icon="log-out-outline"
+                        title="Logout"
+                        danger
+                        onPress={handleLogout}
+                    />
 
-            />
+                </View>
 
-            <ProfileMenuItem
+            </ScrollView>
 
-                title="Delivery Address"
-
-                icon="map-pin"
-
-                onPress={() => router.push("/profile/address")}
-
-            />
-
-            <ProfileMenuItem
-
-                title="Payment Methods"
-
-                icon="credit-card"
-
-                onPress={() => router.push("/profile/payment")}
-
-            />
-
-            <ProfileMenuItem
-
-                title="Promo Codes"
-
-                icon="tag"
-
-                onPress={() => router.push("/profile/promo")}
-
-            />
-
-            <ProfileMenuItem
-
-                title="Help"
-
-                icon="help-circle"
-
-                onPress={() => router.push("/profile/help")}
-
-            />
-
-            <ProfileMenuItem
-
-                title="About"
-
-                icon="info"
-
-                onPress={() => router.push("/profile/about")}
-
-            />
-
-            <ProfileMenuItem
-
-                title="Settings"
-
-                icon="settings"
-
-                onPress={() => router.push("/profile/settings")}
-
-            />
-
-        </ScrollView>
+        </SafeAreaView>
 
     );
 
 }
+
+const styles = StyleSheet.create({
+
+    container: {
+
+        flex: 1,
+
+        backgroundColor: "#F8F8F8",
+
+    },
+
+    menu: {
+
+        marginTop: 20,
+
+        marginHorizontal: 20,
+
+        marginBottom: 40,
+
+    },
+
+});

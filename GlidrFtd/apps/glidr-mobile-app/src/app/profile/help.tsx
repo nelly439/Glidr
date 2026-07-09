@@ -1,73 +1,123 @@
-import { Alert, StyleSheet } from "react-native";
+import {
+    Alert,
+    ScrollView,
+    StyleSheet,
+    TouchableOpacity,
+} from "react-native";
+
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import ScreenHeader from "@/components/profile/ScreenHeader";
-import ProfileMenuItem from "@/components/profile/ProfileMenuItem";
+import InfoCard from "@/components/profile/InfoCard";
 
-export default function HelpScreen(){
+export default function HelpScreen() {
 
-return(
+    function comingSoon(feature: string) {
 
-<SafeAreaView style={styles.container}>
+        Alert.alert(
 
-<ScreenHeader title="Help & Support"/>
+            feature,
 
-<ProfileMenuItem
+            "This feature will be available in a future update."
 
-title="Frequently Asked Questions"
+        );
 
-icon="help-circle"
+    }
 
-onPress={()=>Alert.alert("Coming Soon")}
+    return (
 
-/>
+        <SafeAreaView style={styles.container}>
 
-<ProfileMenuItem
+            <ScreenHeader
+                title="Help & Support"
+            />
 
-title="Contact Support"
+            <ScrollView>
 
-icon="mail"
+                <TouchableOpacity
+                    onPress={() => comingSoon("Frequently Asked Questions")}
+                >
 
-onPress={()=>Alert.alert("Coming Soon")}
+                    <InfoCard
 
-/>
+                        icon="help-circle-outline"
 
-<ProfileMenuItem
+                        title="Frequently Asked Questions"
 
-title="Live Chat"
+                        value="Find answers to common questions."
 
-icon="message-circle"
+                    />
 
-onPress={()=>Alert.alert("Coming Soon")}
+                </TouchableOpacity>
 
-/>
+                <TouchableOpacity
+                    onPress={() => comingSoon("Contact Support")}
+                >
 
-<ProfileMenuItem
+                    <InfoCard
 
-title="Report a Bug"
+                        icon="mail-outline"
 
-icon="alert-circle"
+                        title="Contact Support"
 
-onPress={()=>Alert.alert("Coming Soon")}
+                        value="support@glidr.app"
 
-/>
+                    />
 
-</SafeAreaView>
+                </TouchableOpacity>
 
-)
+                <TouchableOpacity
+                    onPress={() => comingSoon("Privacy Policy")}
+                >
+
+                    <InfoCard
+
+                        icon="shield-checkmark-outline"
+
+                        title="Privacy Policy"
+
+                        value="Read how we protect your data."
+
+                    />
+
+                </TouchableOpacity>
+
+                <TouchableOpacity
+                    onPress={() => comingSoon("Terms & Conditions")}
+                >
+
+                    <InfoCard
+
+                        icon="document-text-outline"
+
+                        title="Terms & Conditions"
+
+                        value="Read the terms of using Glidr."
+
+                    />
+
+                </TouchableOpacity>
+
+            </ScrollView>
+
+        </SafeAreaView>
+
+    );
 
 }
 
-const styles=StyleSheet.create({
+const styles = StyleSheet.create({
 
-container:{
+    container: {
 
-flex:1,
+        flex: 1,
 
-backgroundColor:"#F7F7F7",
+        backgroundColor: "#F8F8F8",
 
-padding:20,
+        paddingHorizontal: 20,
 
-}
+        paddingTop: 10,
+
+    },
 
 });

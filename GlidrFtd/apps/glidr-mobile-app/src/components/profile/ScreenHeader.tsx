@@ -1,5 +1,3 @@
-import { Ionicons } from "@expo/vector-icons";
-import { router } from "expo-router";
 import {
     StyleSheet,
     Text,
@@ -7,12 +5,19 @@ import {
     View,
 } from "react-native";
 
+import { router } from "expo-router";
+import { Ionicons } from "@expo/vector-icons";
+
 interface Props {
+
     title: string;
+
 }
 
 export default function ScreenHeader({
+
     title,
+
 }: Props) {
 
     return (
@@ -35,6 +40,8 @@ export default function ScreenHeader({
                 {title}
             </Text>
 
+            <View style={{ width: 26 }} />
+
         </View>
 
     );
@@ -49,15 +56,15 @@ const styles = StyleSheet.create({
 
         alignItems: "center",
 
-        marginBottom: 28,
+        justifyContent: "space-between",
+
+        marginBottom: 24,
 
     },
 
     title: {
 
-        marginLeft: 16,
-
-        fontSize: 28,
+        fontSize: 22,
 
         fontWeight: "700",
 

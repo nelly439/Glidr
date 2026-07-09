@@ -1,22 +1,22 @@
-import { StyleSheet, Text, View } from "react-native";
+import {
+    StyleSheet,
+    Text,
+    View,
+} from "react-native";
+
+import { Ionicons } from "@expo/vector-icons";
+
+import { Promo } from "@/types/promo";
 
 interface Props {
 
-    code: string;
-
-    description: string;
-
-    expiry: string;
+    promo: Promo;
 
 }
 
 export default function PromoCard({
 
-    code,
-
-    description,
-
-    expiry,
+    promo,
 
 }: Props) {
 
@@ -24,17 +24,41 @@ export default function PromoCard({
 
         <View style={styles.card}>
 
-            <Text style={styles.code}>
-                {code}
-            </Text>
+            <View style={styles.iconContainer}>
 
-            <Text style={styles.description}>
-                {description}
-            </Text>
+                <Ionicons
 
-            <Text style={styles.expiry}>
-                Expires {expiry}
-            </Text>
+                    name="gift"
+
+                    size={30}
+
+                    color="#18B7AE"
+
+                />
+
+            </View>
+
+            <View style={styles.content}>
+
+                <Text style={styles.code}>
+
+                    {promo.code}
+
+                </Text>
+
+                <Text style={styles.description}>
+
+                    {promo.description}
+
+                </Text>
+
+                <Text style={styles.expiry}>
+
+                    Expires: {promo.expiry}
+
+                </Text>
+
+            </View>
 
         </View>
 
@@ -46,37 +70,67 @@ const styles = StyleSheet.create({
 
     card: {
 
-        backgroundColor:"#FFF",
+        backgroundColor: "#FFFFFF",
 
-        padding:20,
+        borderRadius: 16,
 
-        borderRadius:16,
+        padding: 18,
 
-        marginBottom:16,
+        flexDirection: "row",
 
-    },
+        marginBottom: 16,
 
-    code:{
-
-        fontWeight:"700",
-
-        fontSize:20,
+        alignItems: "center",
 
     },
 
-    description:{
+    iconContainer: {
 
-        marginTop:8,
+        width: 55,
 
-        color:"#555",
+        height: 55,
+
+        borderRadius: 28,
+
+        backgroundColor: "#EAFBF9",
+
+        justifyContent: "center",
+
+        alignItems: "center",
 
     },
 
-    expiry:{
+    content: {
 
-        marginTop:12,
+        flex: 1,
 
-        color:"#18B7AE",
+        marginLeft: 16,
+
+    },
+
+    code: {
+
+        fontSize: 18,
+
+        fontWeight: "700",
+
+    },
+
+    description: {
+
+        marginTop: 6,
+
+        color: "#666",
+
+    },
+
+    expiry: {
+
+        marginTop: 10,
+
+        color: "#999",
+
+        fontSize: 13,
 
     },
 
