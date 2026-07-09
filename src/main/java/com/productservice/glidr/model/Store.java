@@ -19,7 +19,7 @@ public class Store {
     private String id = UUID.randomUUID().toString();
     private String name;
     private String address;
-    private String phoneNumber;
+    private String contactNumber;
     private String adminUserId;
     private LocalDateTime createdAt = LocalDateTime.now();
 }

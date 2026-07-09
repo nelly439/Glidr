@@ -39,7 +39,6 @@ public class ProductService {
         return new ProductLocationResponse(p.getId(), p.getName(), p.getAisleNumber(), p.getShelfNumber());
     }
 
-    // --- Kafka event handlers ---
 
     public void onProductSynced(ProductSyncedEvent event) {
         Product product = productRepository

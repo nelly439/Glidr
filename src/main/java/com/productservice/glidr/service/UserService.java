@@ -42,7 +42,6 @@ public class UserService {
         if (!passwordEncoder.matches(request.password(), user.getPassword())) {
             throw new NotFoundException("Invalid email or password");
         }
-        // Placeholder - swap for real JWT once auth is built out.
         String token = "stub-token-" + user.getId();
         return new LoginResponse(toResponse(user), token);
     }

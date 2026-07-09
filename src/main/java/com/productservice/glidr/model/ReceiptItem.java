@@ -6,20 +6,19 @@ import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.time.LocalDateTime;
+import java.math.BigDecimal;
 import java.util.UUID;
 
-@Document(collection = "pos_integrations")
+@Document(collection = "reciept_items")
 @Getter
 @Setter
 @NoArgsConstructor
-public class PosIntegration {
-
+public class ReceiptItem {
     @Id
     private String id = UUID.randomUUID().toString();
-    private String storeId;
-    private String provider;
-    private String apiPublicKey;
-    private String apiSecretKey;
-    private LocalDateTime createdAt = LocalDateTime.now();
+    private String receiptId;
+    private String productId;
+    private Integer quantity;
+    private BigDecimal unitPrice;
+    private BigDecimal subTotal;
 }

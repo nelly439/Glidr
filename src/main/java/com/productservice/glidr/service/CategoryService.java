@@ -45,14 +45,13 @@ public class CategoryService {
         categoryLocationRepository.save(location);
     }
 
-    // Auto-creates a Category from a raw POS label if none exists yet.
     public Category mapExternalCategory(String externalCategoryLabel) {
         if (externalCategoryLabel == null || externalCategoryLabel.isBlank()) return null;
         return categoryRepository.findByCode(externalCategoryLabel).orElseGet(() -> {
-            Category c = new Category();
-            c.setName(externalCategoryLabel);
-            c.setCode(externalCategoryLabel);
-            return categoryRepository.save(c);
+            Category category = new Category();
+            category.setName(externalCategoryLabel);
+            category.setCode(externalCategoryLabel);
+            return categoryRepository.save(category);
         });
     }
 
