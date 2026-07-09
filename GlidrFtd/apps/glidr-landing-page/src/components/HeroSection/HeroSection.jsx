@@ -45,7 +45,7 @@ export default function HeroSection() {
       </h1>
       <p className={styles.subheading}>Glide through your favorite store</p>
 
-      <a href="#features" className={styles.cta}>Shop Now!</a>
+      <a href="https://expo.dev/artifacts/eas/m5K8S9rcl9NoKVefBCIMy5hnHBj_SVXYZg4B2m9MKLA.apk" className={styles.cta}>Shop Now!</a>
     </section>
   );
 }
