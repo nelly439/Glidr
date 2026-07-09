@@ -1,20 +1,19 @@
 import {
-    Ionicons,
-    Feather,
-} from "@expo/vector-icons";
-
-import {
     StyleSheet,
     Text,
     TouchableOpacity,
     View,
 } from "react-native";
 
+import { Ionicons } from "@expo/vector-icons";
+
 interface Props {
+
+    icon: keyof typeof Ionicons.glyphMap;
 
     title: string;
 
-    icon: keyof typeof Feather.glyphMap;
+    danger?: boolean;
 
     onPress: () => void;
 
@@ -22,9 +21,11 @@ interface Props {
 
 export default function ProfileMenuItem({
 
+    icon,
+
     title,
 
-    icon,
+    danger,
 
     onPress,
 
@@ -39,22 +40,42 @@ export default function ProfileMenuItem({
 
             <View style={styles.left}>
 
-                <Feather
+                <Ionicons
+
                     name={icon}
-                    size={24}
-                    color="#222"
+
+                    size={22}
+
+                    color={
+                        danger
+                            ? "#EF4444"
+                            : "#18B7AE"
+                    }
+
                 />
 
-                <Text style={styles.title}>
+                <Text
+                    style={[
+                        styles.title,
+
+                        danger && styles.danger,
+                    ]}
+                >
+
                     {title}
+
                 </Text>
 
             </View>
 
             <Ionicons
+
                 name="chevron-forward"
-                size={24}
-                color="#222"
+
+                size={20}
+
+                color="#AAA"
+
             />
 
         </TouchableOpacity>
@@ -67,21 +88,19 @@ const styles = StyleSheet.create({
 
     container: {
 
+        backgroundColor: "#FFF",
+
+        borderRadius: 14,
+
+        padding: 18,
+
+        marginBottom: 14,
+
         flexDirection: "row",
 
         justifyContent: "space-between",
 
         alignItems: "center",
-
-        backgroundColor: "#FFF",
-
-        paddingHorizontal: 20,
-
-        paddingVertical: 22,
-
-        borderBottomWidth: 1,
-
-        borderBottomColor: "#ECECEC",
 
     },
 
@@ -95,11 +114,17 @@ const styles = StyleSheet.create({
 
     title: {
 
-        marginLeft: 18,
+        marginLeft: 16,
 
-        fontSize: 22,
+        fontSize: 16,
 
-        color: "#222",
+        fontWeight: "600",
+
+    },
+
+    danger: {
+
+        color: "#EF4444",
 
     },
 

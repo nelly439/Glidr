@@ -1,11 +1,17 @@
-export interface PaymentMethod{
+export interface PaymentMethod {
 
-    id:string;
+    id: string;
 
-    type:"card"|"wallet";
+    brand: "Visa" | "Mastercard" | "Verve";
 
-    name:string;
+    lastFour: string;
 
-    isDefault:boolean;
+    expiryMonth: string;
+
+    expiryYear: string;
+
+    cardHolder: string;
+
+    isDefault: boolean;
 
 }

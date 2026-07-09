@@ -38,11 +38,11 @@ export function UserProvider({
 
         id: "1",
 
-        firstName: "Abdulwahab",
+        firstName: "Henry",
 
-        lastName: "Adamson",
+        lastName: "Olaitan",
 
-        email: "adamson@gmail.com",
+        email: "henry@gmail.com",
 
         phone: "+2348012345678",
 

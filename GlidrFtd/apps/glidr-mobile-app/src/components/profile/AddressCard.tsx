@@ -1,4 +1,5 @@
 import {
+    Alert,
     StyleSheet,
     Text,
     TouchableOpacity,
@@ -7,27 +8,25 @@ import {
 
 import { Ionicons } from "@expo/vector-icons";
 
+import { Address } from "@/types/address";
+
 interface Props {
 
-    title: string;
-
-    address: string;
-
-    isDefault?: boolean;
+    address: Address;
 
     onEdit?: () => void;
+
+    onDelete?: () => void;
 
 }
 
 export default function AddressCard({
 
-    title,
-
     address,
 
-    isDefault = false,
-
     onEdit,
+
+    onDelete,
 
 }: Props) {
 
@@ -37,21 +36,13 @@ export default function AddressCard({
 
             <View style={styles.header}>
 
-                <View style={styles.left}>
+                <Text style={styles.title}>
 
-                    <Ionicons
-                        name="location"
-                        size={24}
-                        color="#18B7AE"
-                    />
+                    {address.title}
 
-                    <Text style={styles.title}>
-                        {title}
-                    </Text>
+                </Text>
 
-                </View>
-
-                {isDefault && (
+                {address.isDefault && (
 
                     <View style={styles.badge}>
 
@@ -65,20 +56,86 @@ export default function AddressCard({
 
             </View>
 
-            <Text style={styles.address}>
-                {address}
+            <Text style={styles.receiver}>
+                {address.receiver}
             </Text>
 
-            <TouchableOpacity
-                style={styles.editButton}
-                onPress={onEdit}
-            >
+            <Text style={styles.text}>
+                {address.phone}
+            </Text>
 
-                <Text style={styles.editText}>
-                    Edit
+            <Text style={styles.text}>
+                {address.addressLine}
+            </Text>
+
+            <Text style={styles.text}>
+                {address.city}, {address.state}
+            </Text>
+
+            {address.landmark && (
+
+                <Text style={styles.landmark}>
+                    Landmark: {address.landmark}
                 </Text>
 
-            </TouchableOpacity>
+            )}
+
+            <View style={styles.actions}>
+
+                <TouchableOpacity
+                    style={styles.button}
+                    onPress={
+                        onEdit ??
+                        (() =>
+                            Alert.alert(
+                                "Coming Soon",
+                                "Editing addresses will be available soon."
+                            ))
+                    }
+                >
+
+                    <Ionicons
+                        name="create-outline"
+                        size={18}
+                        color="#18B7AE"
+                    />
+
+                    <Text style={styles.actionText}>
+                        Edit
+                    </Text>
+
+                </TouchableOpacity>
+
+                <TouchableOpacity
+                    style={styles.button}
+                    onPress={
+                        onDelete ??
+                        (() =>
+                            Alert.alert(
+                                "Coming Soon",
+                                "Deleting addresses will be available soon."
+                            ))
+                    }
+                >
+
+                    <Ionicons
+                        name="trash-outline"
+                        size={18}
+                        color="#EF4444"
+                    />
+
+                    <Text
+                        style={[
+                            styles.actionText,
+                            { color: "#EF4444" },
+                        ]}
+                    >
+                        Delete
+                    </Text>
+
+                </TouchableOpacity>
+
+            </View>
 
         </View>
 
@@ -92,7 +149,7 @@ const styles = StyleSheet.create({
 
         backgroundColor: "#FFF",
 
-        borderRadius: 16,
+        borderRadius: 18,
 
         padding: 18,
 
@@ -108,19 +165,11 @@ const styles = StyleSheet.create({
 
         alignItems: "center",
 
-    },
-
-    left: {
-
-        flexDirection: "row",
-
-        alignItems: "center",
+        marginBottom: 12,
 
     },
 
     title: {
-
-        marginLeft: 10,
 
         fontSize: 18,
 
@@ -132,11 +181,11 @@ const styles = StyleSheet.create({
 
         backgroundColor: "#18B7AE",
 
+        borderRadius: 20,
+
         paddingHorizontal: 10,
 
-        paddingVertical: 4,
-
-        borderRadius: 20,
+        paddingVertical: 5,
 
     },
 
@@ -144,37 +193,65 @@ const styles = StyleSheet.create({
 
         color: "#FFF",
 
-        fontSize: 12,
+        fontWeight: "600",
 
-        fontWeight: "700",
+        fontSize: 12,
 
     },
 
-    address: {
+    receiver: {
 
-        marginTop: 14,
+        fontWeight: "700",
+
+        marginBottom: 5,
+
+    },
+
+    text: {
 
         color: "#666",
 
-        lineHeight: 24,
-
-        fontSize: 15,
+        marginBottom: 3,
 
     },
 
-    editButton: {
+    landmark: {
 
-        marginTop: 18,
+        marginTop: 8,
 
-        alignSelf: "flex-end",
+        fontStyle: "italic",
+
+        color: "#888",
 
     },
 
-    editText: {
+    actions: {
+
+        flexDirection: "row",
+
+        justifyContent: "flex-end",
+
+        marginTop: 16,
+
+    },
+
+    button: {
+
+        flexDirection: "row",
+
+        alignItems: "center",
+
+        marginLeft: 20,
+
+    },
+
+    actionText: {
+
+        marginLeft: 6,
 
         color: "#18B7AE",
 
-        fontWeight: "700",
+        fontWeight: "600",
 
     },
 

@@ -1,73 +1,84 @@
-import { StyleSheet, Switch, Text, View } from "react-native";
+import {
+    StyleSheet,
+    Switch,
+    Text,
+    View,
+} from "react-native";
 
-interface Props{
+interface Props {
 
-title:string;
+    title: string;
 
-value:boolean;
+    value: boolean;
 
-onValueChange:(value:boolean)=>void;
+    onValueChange: (
+        value: boolean
+    ) => void;
 
 }
 
 export default function SettingItem({
 
-title,
+    title,
 
-value,
+    value,
 
-onValueChange,
+    onValueChange,
 
-}:Props){
+}: Props) {
 
-return(
+    return (
 
-<View style={styles.container}>
+        <View style={styles.container}>
 
-<Text style={styles.title}>
+            <Text style={styles.title}>
+                {title}
+            </Text>
 
-{title}
+            <Switch
 
-</Text>
+                value={value}
 
-<Switch
+                onValueChange={onValueChange}
 
-value={value}
+                trackColor={{
+                    true: "#18B7AE",
+                }}
 
-onValueChange={onValueChange}
+            />
 
-/>
+        </View>
 
-</View>
-
-)
-
-}
-
-const styles=StyleSheet.create({
-
-container:{
-
-flexDirection:"row",
-
-justifyContent:"space-between",
-
-alignItems:"center",
-
-backgroundColor:"#FFF",
-
-padding:18,
-
-marginBottom:14,
-
-borderRadius:14,
-
-},
-
-title:{
-
-fontSize:17,
+    );
 
 }
+
+const styles = StyleSheet.create({
+
+    container: {
+
+        backgroundColor: "#FFF",
+
+        borderRadius: 14,
+
+        padding: 18,
+
+        marginBottom: 14,
+
+        flexDirection: "row",
+
+        justifyContent: "space-between",
+
+        alignItems: "center",
+
+    },
+
+    title: {
+
+        fontSize: 16,
+
+        fontWeight: "600",
+
+    },
 
 });

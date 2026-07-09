@@ -1,20 +1,13 @@
-import { Alert, StyleSheet, Text, TouchableOpacity } from "react-native";
+import { Alert, FlatList, StyleSheet } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { TouchableOpacity, Text } from "react-native";
 
-import ScreenHeader from "@/components/profile/ScreenHeader";
-import SectionCard from "@/components/profile/SectionCard";
 import PaymentCard from "@/components/profile/PaymentCard";
+import ScreenHeader from "@/components/profile/ScreenHeader";
+
+import { paymentMethods } from "@/mock/payment.data";
 
 export default function PaymentScreen() {
-
-    function handleAddCard() {
-
-        Alert.alert(
-            "Coming Soon",
-            "Card payments will be available when online payment is integrated."
-        );
-
-    }
 
     return (
 
@@ -22,27 +15,37 @@ export default function PaymentScreen() {
 
             <ScreenHeader title="Payment Methods" />
 
-            <SectionCard>
+            <FlatList
 
-                <PaymentCard
-                    brand="Visa"
-                    last4="3402"
-                    isDefault
-                />
+                data={paymentMethods}
 
-                <PaymentCard
-                    brand="Mastercard"
-                    last4="8214"
-                />
+                keyExtractor={(item) => item.id}
 
-            </SectionCard>
+                renderItem={({ item }) => (
+
+                    <PaymentCard
+
+                        payment={item}
+
+                    />
+
+                )}
+
+                showsVerticalScrollIndicator={false}
+
+            />
 
             <TouchableOpacity
-                style={styles.button}
-                onPress={handleAddCard}
+                style={styles.addButton}
+                onPress={() =>
+                    Alert.alert(
+                        "Coming Soon",
+                        "Card management will be available after payment gateway integration."
+                    )
+                }
             >
 
-                <Text style={styles.buttonText}>
+                <Text style={styles.addButtonText}>
                     Add New Card
                 </Text>
 
@@ -60,31 +63,32 @@ const styles = StyleSheet.create({
 
         flex: 1,
 
-        backgroundColor: "#F7F7F7",
+        backgroundColor: "#F8F8F8",
 
-        padding: 20,
+        paddingHorizontal: 20,
+
+        paddingTop: 10,
 
     },
+    addButton: {
 
-    button: {
-
-        height: 55,
+        height: 56,
 
         backgroundColor: "#18B7AE",
 
-        borderRadius: 14,
+        borderRadius: 16,
 
         justifyContent: "center",
 
         alignItems: "center",
 
-        marginTop: 20,
+        marginVertical: 20,
 
     },
 
-    buttonText: {
+    addButtonText: {
 
-        color: "#FFF",
+        color: "#FFFFFF",
 
         fontSize: 17,
 

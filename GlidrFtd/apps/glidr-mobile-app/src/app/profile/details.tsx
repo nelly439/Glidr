@@ -18,9 +18,9 @@ export default function DetailsScreen() {
 
     const [firstName, setFirstName] = useState("Abdulwahab");
 
-    const [lastName, setLastName] = useState("Adamson");
+    const [lastName, setLastName] = useState("Henry");
 
-    const [email, setEmail] = useState("adamson@gmail.com");
+    const [email, setEmail] = useState("henry@gmail.com");
 
     const [phone, setPhone] = useState("+2348012345678");
 

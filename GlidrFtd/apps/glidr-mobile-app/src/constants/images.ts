@@ -2,7 +2,7 @@ export const Images = {
   logo: require("../../assets/images/glidr_logo.png"),
 
   onboarding: require("../../assets/images/onboarding.png"),
-  avatar: require("../../assets/images/avatar.jpeg"),
+  avatar: require("../../assets/images/avatar.png"),
   eye: require("../../assets/images/eye.png"),
   eyeOff: require("../../assets/images/eyeOff.png"),
 

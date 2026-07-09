@@ -1,90 +1,118 @@
-import { Alert, StyleSheet, Text, TouchableOpacity } from "react-native";
+import {
+    Alert,
+    FlatList,
+    StyleSheet,
+    Text,
+    TouchableOpacity,
+} from "react-native";
+
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import ScreenHeader from "@/components/profile/ScreenHeader";
 import PromoCard from "@/components/profile/PromoCard";
 
-export default function PromoScreen(){
+import { promos } from "@/mock/promo.data";
 
-    return(
+export default function PromoScreen() {
+
+    return (
 
         <SafeAreaView style={styles.container}>
 
-            <ScreenHeader title="Promo Codes"/>
-
-            <PromoCard
-
-                code="WELCOME10"
-
-                description="10% OFF your next purchase"
-
-                expiry="31 Dec 2026"
-
+            <ScreenHeader
+                title="Promo Codes"
             />
 
-            <PromoCard
+            <FlatList
 
-                code="SAVE500"
+                data={promos}
 
-                description="₦500 OFF orders above ₦10,000"
+                keyExtractor={(item) => item.id}
 
-                expiry="31 Dec 2026"
+                renderItem={({ item }) => (
+
+                    <PromoCard
+
+                        promo={item}
+
+                    />
+
+                )}
+
+                showsVerticalScrollIndicator={false}
 
             />
 
             <TouchableOpacity
+
                 style={styles.button}
-                onPress={()=>Alert.alert("Coming Soon")}
+
+                onPress={() =>
+
+                    Alert.alert(
+
+                        "Coming Soon",
+
+                        "Adding promo codes will be available after backend integration."
+
+                    )
+
+                }
+
             >
 
                 <Text style={styles.buttonText}>
-                    Apply Promo Code
+
+                    Add Promo Code
+
                 </Text>
 
             </TouchableOpacity>
 
         </SafeAreaView>
 
-    )
+    );
 
 }
 
-const styles=StyleSheet.create({
+const styles = StyleSheet.create({
 
-container:{
+    container: {
 
-flex:1,
+        flex: 1,
 
-padding:20,
+        backgroundColor: "#F8F8F8",
 
-backgroundColor:"#F7F7F7",
+        paddingHorizontal: 20,
 
-},
+        paddingTop: 10,
 
-button:{
+    },
 
-marginTop:20,
+    button: {
 
-height:55,
+        height: 56,
 
-backgroundColor:"#18B7AE",
+        backgroundColor: "#18B7AE",
 
-borderRadius:14,
+        borderRadius: 16,
 
-justifyContent:"center",
+        justifyContent: "center",
 
-alignItems:"center",
+        alignItems: "center",
 
-},
+        marginVertical: 20,
 
-buttonText:{
+    },
 
-color:"#FFF",
+    buttonText: {
 
-fontWeight:"700",
+        color: "#FFFFFF",
 
-fontSize:16,
+        fontWeight: "700",
 
-}
+        fontSize: 16,
+
+    },
 
 });
