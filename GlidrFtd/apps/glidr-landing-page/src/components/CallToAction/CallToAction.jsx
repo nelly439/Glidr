@@ -14,7 +14,7 @@ export default function CallToAction() {
           <p className={styles.body}>
             Get ₦300 off your first order when you use this promo code!
           </p>
-          <a href="#" className={styles.cta}>Shop Now!</a>
+          <a href="https://expo.dev/artifacts/eas/m5K8S9rcl9NoKVefBCIMy5hnHBj_SVXYZg4B2m9MKLA.apk" className={styles.cta}>Shop Now!</a>
         </div>
 
         {/* Illustration */}
