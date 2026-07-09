@@ -16,6 +16,8 @@ import ProductImage from "./ProductImage";
 
 interface Props {
   product: Product;
+  children?: React.ReactNode;
+  onPress?: () => void;
 }
 
 export default function ProductCard({
