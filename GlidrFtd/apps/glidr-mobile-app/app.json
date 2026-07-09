@@ -4,12 +4,12 @@
     "slug": "glidr",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/glidr_logo.png",
+    "icon": "./assets/images/glidr_app_logo.png",
     "scheme": "glidrmobileapp",
     "userInterfaceStyle": "automatic",
     "ios": {
       "icon": "./assets/expo.icon",
-      "bundleIdentifier": "com.anonymous.Glidr"
+      "bundleIdentifier": "com.adamson.Glidr"
     },
     "android": {
       "adaptiveIcon": {
@@ -42,6 +42,12 @@
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "327e3e7b-c116-435c-9f2d-30e0159378ef"
+      }
     }
   }
 }
