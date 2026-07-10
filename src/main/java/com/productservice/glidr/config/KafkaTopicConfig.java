@@ -10,7 +10,6 @@ import com.productservice.glidr.config.KafkaTopicConfig;
 @Configuration
 public class KafkaTopicConfig {
 
-
     public static final String POS_PRODUCT_SYNCED = "pos.product.synced";
     public static final String POS_INVENTORY_UPDATED = "pos.inventory.updated";
     public static final String POS_RECEIPT_CREATED = "pos.receipt.created";

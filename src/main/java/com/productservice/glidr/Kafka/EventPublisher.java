@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 @RequiredArgsConstructor
 @Slf4j
 public class EventPublisher {
+
     private final KafkaTemplate<String, Object> kafkaTemplate;
 
     public void publish(String topic, String key, Object event) {
